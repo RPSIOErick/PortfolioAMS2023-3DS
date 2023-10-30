@@ -1,0 +1,396 @@
+@import url("main.css");
+
+/* Questionário Vocacional */
+
+#d-quest-listar, #d-estudante-listar, #d-estudante-editar
+{
+    background-color: #F6D57F;
+    font-size: 1.5vw;
+    max-height: fit-content;
+    padding: 1vh;
+    padding-top: 1.5vh;
+    font-weight: bold;
+    font-family: var(--font-lexend-giga);
+}
+
+#c-read-quest-voc
+{
+    position: relative;
+    max-width: 80%;
+    top: 2vw;
+}
+
+#d-search-bar-icon
+{
+    background-color: #F1C247;
+    font-size: 2.5vw;
+    max-width: 4.5vw;
+    border-radius: 0.5vw 0 0vw 0.5vw;
+    position: relative;
+    left: 1vw;
+    border: 2px solid;
+    border-right-color: black;
+    border-color: #326CB4;
+}
+
+
+#d-search-bar-input
+{
+    height: 3vw;
+    border-radius: 0vw 0.5vw 0.5vw 0;
+    border: 0.2vh solid;
+    border-color: #326CB4;
+    width: 100%;
+    font-size: 1.3vw;
+    padding-left: 1VH;
+}
+
+#d-search-button-btn
+{
+    background-color: #F1C247;
+    height: 3vw;
+    width: 6vw;
+    font-size: 1vw;
+}
+
+#d-new-quest-button-btn
+{
+    background-color: #469E64;
+    height: 3vw;
+    width: 6vw;
+    font-size: 1vw;
+}
+
+#d-paginate-quest-voc
+{
+    position: relative;
+    top: 2vw;
+}
+
+#d-paginate-previous-btn
+{
+    position: relative;
+    float: right;
+}
+
+#d-paginate-previous-btn, #d-paginate-next-btn
+{
+    background-color: #326CB480;
+    font-size: 1vw;
+    padding: 1vh;
+}
+
+#d-quest-voc-table, #d-estudantes-table
+{
+    position: relative;
+    top: 3.5vw;
+    width: 90%;
+}
+
+#table-quest-voc, #table-estudantes-voc
+{
+    width: 100%;
+    border: 1px solid;
+    border-color: #C7C2C2;
+    box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#table-quest-voc-title, #table-estudantes-title
+{
+    background-color: #326CB4;
+    color: white;
+    text-align: center;
+    height: 4vw;
+    text-transform: uppercase;
+    font-size: 1.4vw;
+}
+
+#table-quest-voc-id
+{
+    width: 7vw;
+}
+
+[id*="table-quest-voc-data-"], #table-estudante-data
+{
+    text-align: center;
+    height: 4vw;
+    font-size: 1.3vw;
+}
+
+#table-quest-voc-linha, #table-quest-voc-linha-intMult, #table-quest-voc-linha-func, #table-estudante-linha
+{
+    border: 1px solid;
+    border-color: #C7C2C2;
+    border-top: 0;
+    color: black;
+}
+
+#table-quest-voc-form-excl
+{
+    width: fit-content;
+    display: inline-block;    
+}
+
+#img-template-icons
+{
+    color: #326CB4;
+    width: 2vw;
+    height: 2vw;
+    padding-top: 1vw;
+}
+
+#table-quest-voc-linha-intMult
+{
+    width: 20vw;
+}
+
+#table-quest-voc-linha-func
+{
+    width: 10vw;
+    position: relative;
+}
+
+/* Está usando seletor pois não está funcionando */
+tr:nth-child(odd)
+{
+    background-color: #f2f2f2;
+}
+
+/* Fim do Questionário Vocacional */
+
+
+/* Páginas de Consulta de Estudantes */
+
+#table-estudantes-func-icon, #table-estudante-linha-func
+{
+    color: #326CB4;
+    font-size: 2vw;
+    position: relative;
+    top: 0.40vw;
+}
+
+#table-estudante-linha-func
+{
+    top: 0;
+}
+
+#table-estudantes-func
+{
+    font-size: 1.3vw;
+    color: #326CB4;
+}
+
+#table-estudante-linha-nome
+{
+    width: 35vw;
+}
+
+#d-paginate-estudante
+{
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 4vw;
+    transform: scale(1.5vw);
+}
+
+/* Fim da página de consulta de estudantes*/
+
+/* Pop-up de Exclusão */
+[id^="Popup-Excl-"] {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+[id^="Popup-Excl-"]:target {
+    visibility: visible;
+    opacity: 1;
+    z-index: 20;
+}
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #ebe9e9;
+    border-radius: 5px;
+    width: 60%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+.popup .close {
+    position: absolute;
+    top: 1vw;
+    right: 2.5vh;
+    transition: all 200ms;
+    font-size: 2vw;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+.popup .close:hover {
+    color: #326cb4;
+}
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
+#Excl-form-btn
+{
+    background-color: #F1C247;
+    width: 10vw;
+    font-weight: bold;
+    font-size: 1vw;
+}
+#Trash-Icon
+{
+    font-size: 2vw;
+    margin-bottom: 1vw;
+}
+#Excl-form-btn:hover
+{
+    border: 0.2vw solid;
+    border-color: #ac8525;
+}
+
+@media screen and (orientation: portrait){
+    .box{
+        width: 70%;
+    }
+    .popup{
+        width: 70%;
+    }
+    #d-quest-listar, #d-estudante-listar, #d-estudante-editar
+    {
+        font-size: 1.5vh;
+    }
+    #c-read-quest-voc
+    {
+        max-width: 95%;
+    }
+    #d-search-bar-icon
+    {
+        background-color: #F1C247;
+        font-size: 2.5vh;
+        max-width: 4.5vh;
+        left: 1.5vh;
+    }
+
+
+    #d-search-bar-input
+    {
+        width: 90%;
+        height: 4vh;
+        font-size: 1.5vh;
+    }
+    #d-search-button-btn
+    {
+        background-color: #F1C247;
+        height: 4vh;
+        width: 11vw;
+        font-size: 1.5vh;
+        margin-left: -8vw;
+        padding: 0.1vh;
+    }
+    #d-new-quest-button-btn
+    {
+        background-color: #469E64;
+        height: 4vh;
+        width: 11vw;
+        font-size: 1.5vh;
+        margin-left: -4vw;
+        padding: 0.1vh;
+    }
+
+    #d-paginate-quest-voc
+    {
+        top: 2vh;
+    }
+
+    #d-paginate-previous-btn, #d-paginate-next-btn
+    {
+        font-size: 1.5vh;
+        padding: 1vh;
+    }
+
+    #d-quest-voc-table, #d-estudantes-table
+    {
+        position: relative;
+        top: 4vh;
+        width:100%; 
+        overflow-x: auto;   
+    }
+    #table-quest-voc-title, #table-estudantes-title
+    {
+        height: 4vh;
+        font-size: 1.5vh;
+    }
+    [id*="table-quest-voc-data-"], #table-estudante-data
+    {
+        height: 4vh;
+        font-size: 1.5vh;
+    }
+    #img-template-icons
+    {
+        color: #326CB4;
+        width: 2vh;
+        height: 2vh;
+        padding-top: 1vh;
+    }
+
+    #table-quest-voc-linha-intMult
+    {
+        width: 20vh;
+    }
+
+    #table-quest-voc-linha-func
+    {
+        width: 10vh;
+        position: relative;
+    }
+    #table-estudantes-func-icon, #table-estudante-linha-func
+    {
+        font-size: 2vh;
+    }
+
+    #table-estudantes-func
+    {
+        font-size: 1.3vh;
+    }
+
+    #table-estudante-linha-nome
+    {
+        width: 35vh;
+    }
+    
+    /* Pop-up de Exclusão */
+    .popup 
+    {
+        width: 90%;
+    }
+    .popup .close {
+        position: absolute;
+        top: 1vh;
+        right: 2.5vw;
+        font-size: 2vh;
+    }
+    #Popup-Excl_Title
+    {
+        font-size: 1.5vh;
+    }
+    #Excl-form-btn
+    {
+        width: 10vh;
+        font-size: 1.5vh;
+    }
+    #Trash-Icon
+    {
+        font-size: 2vh;
+        margin-bottom: 1vw;
+    }
+}
+/* Fim do Pop-up de exclusão */
