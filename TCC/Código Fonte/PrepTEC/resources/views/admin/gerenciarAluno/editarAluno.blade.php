@@ -1,11 +1,10 @@
-@extends('layouts.mainNavbarOnly')
+@extends('layouts.main-NavbarOnly')
 
-@section('title', 'Cadastrar Questões - PrepTEC')
+@section('title', 'Editar Estudantes - PrepTEC')
 
 @section('content')
 
-<link rel="stylesheet" href="/css/crudpages.css">
-
+<link rel="stylesheet" href="/css/admin/crud.css">
 <!-- Container de Criação de Questões -->
     <div class="container-fluid">
 
@@ -19,7 +18,7 @@
                 <!--Fim da Coluna Titulo-->
                 
                 <!--Formulario-->
-                    <form action="/estudante/atualizar/{{$estudante->id_usuario}}" method="POST" id="d-CRUD-CU-col-template">
+                    <form action="/estudante/atualizar/{{$estudante->id_usuario}}" method="POST" id="d-CRUD-CU-col-template" enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <!--Cabeçario do CRUD-->
@@ -49,7 +48,11 @@
 
                                             <!--Campo Imagem-->                               
                                                 <div class="col" id="d-CRUD-U-usu-colProfilePicture">
-                                                    <img src="{{ asset('storage/users/'. $estudante->fotoUsuario) }}" alt="Foto do perfil" id="img-CRUD-U-usu-profilePicture">
+                                                    @if(!empty($estudante->fotoUsuario))
+                                                        <img src="{{ asset('../users/'. $estudante->fotoUsuario) }}" alt="Foto do perfil" id="img-CRUD-U-usu-profilePicture">
+                                                    @else
+                                                        <img src="/img/contas/minhaConta/img-profile-default.png" alt="Foto do perfil" id="img-CRUD-U-usu-profilePicture">
+                                                    @endif
                                                 </div>
                                             <!--Fim do Campo Imagem-->
 
@@ -58,7 +61,7 @@
 
                                                     <!--Id Usuario-->
                                                         <label id="txt-CRUD-CU-label-template">ID: {{$estudante->id_usuario}}</label>
-                                                        <input type="text" name="id_usuario" value="{{$estudante->id_usuario}}" hidden>
+                                                        <input type="text" name="id_usuario" value="{{$estudante->id_usuario}}" hidden required>
                                                     <!--Fim do Id Usuario-->
                                                         <br>
                                                     <!--Tipo Usuario-->
@@ -69,10 +72,14 @@
                                                             <option value="Estudante"> Estudante </option>
                                                             <option value="Suspenso"> Suspenso </option>
                                                             <option value="Desativado"> Desativado </option>
+                                                            <option value="Admin"> Administrador (!) </option>
                                                         </select>
 
                                                         <div id="d-CRUD-CU-usu-iconCol"><ion-icon name="pencil-outline" class="d-template-center-vertAndHori"></ion-icon></div>
                                                     <!--Fim do Tipo Usuario-->
+
+                                                    <!--Input Imagem-->
+                                                        <input type="file" name="fotoUsuario" class="form-control" accept="image/*" id="input-imagem-user" value="{{$estudante->fotoUsuario}}">
 
                                                 </div>
                                             <!--Fim dos Campos ID e Tipo Usuario-->
@@ -83,7 +90,7 @@
                                 <!--Campo Usuario-->
                                     <div class="col">
                                         <label id="txt-CRUD-CU-label-template">Usuario</label><br>
-                                        <input id="input-CRUD-CU-shortInp-template" name="nome_usuario" value="{{$estudante->nome_usuario}}">
+                                        <input id="input-CRUD-CU-shortInp-template" name="nome_usuario" value="{{$estudante->nome_usuario}}" required>
                                         <div id="d-CRUD-CU-usu-iconCol"><ion-icon name="pencil-outline" class="d-template-center-vertAndHori"></ion-icon></div>
                                     </div>
                                 <!--Fim do Campo Usuario-->
@@ -100,7 +107,7 @@
 
                                 <!--Botões-->
                                     <div class="col">
-                                        <button id="btn-CRUD-CU-usu-Voltar" type="button" onclick="window.location='/aluno/listar'">Voltar</button>
+                                        <button id="btn-CRUD-CU-usu-Voltar" type="button" onclick="window.location='/estudante/listar'">Voltar</button>
                                         <button id="btn-CRUD-CU-usu-Salvar" type="submit">Salvar</button>
                                     </div>
                                 <!--Fim dos Botões-->

@@ -19,20 +19,23 @@
     overflow-x: hidden;
 }
 
- /* navbar */
- 
- #navbar-preptec{
+/* navbar */
+#navbar-preptec{
+    background-color: #326CB4;
     display: flex;
     overflow: hidden;
     max-height: 10vh;
     margin: 0;
     padding: 0;
     top: 0;
+    align-items: center;
     z-index: 10;
 }
 
-#logo{
-    margin: 0.5vh 0 0 0.5vw;
+#logo-home{
+    margin-left: 0.5vw;
+    height: auto;
+    width: 14vw;
 }
 
 #img-profile
@@ -41,15 +44,34 @@
     width: 3vw;
     height: 3vw;
     border-radius: 50vw;
-    left: 37vw;
+    margin-left: auto;
+    margin-right: 0.7vw;
 }
 
-#btn-hamburguer{
-    justify-content: right;
-    margin-right: 2.2vw;
-    border: 0.3vh solid #adc7d1;
+#btn-cadastrar
+{
+    border-radius: 0.5vw;
     font-size: 1.2vw;
-    width: 4vw;
+    margin-right: 2vh; 
+    border: 0.2vh solid #84a6d3;
+    align-items: center;
+    background: linear-gradient(to right, #0b376d, #1d5799);
+    color: #e7e5e5;           
+    box-shadow: 0 5px 5px -5px rgba(9, 24, 71, 0.5);
+    justify-content: center;
+    min-width: 8vw;
+    min-height: 2.9vw;
+}
+
+#btn-cadastrar:hover
+{
+    color: #fff;
+    box-shadow: 0 0 0.7vh rgba(2, 27, 138, 0.5);         
+    background: linear-gradient(to right, #092d5a, #1a4f8b);
+} 
+
+#btn-cadastrar:active{
+    background: linear-gradient(to right, #062750, #144680);
 }
 
 #btn-hamburguer, #btn-close:focus{
@@ -57,35 +79,40 @@
     box-shadow: none; 
 }
 
+
 /* menu */
 #menu-preptec{
+    background: linear-gradient(180deg, #326CB4 0%, #0f51a3 100%);
     width: 27.5vw;
 }
 
-#menu-header{         
+#menu-header{                 
+    box-shadow: 0px 0.7vh 0.7vh #25538b;
     padding-left: 2vw;
     background-color: #295fa1;
-    box-shadow: 0px 4px 6px #214a7c; 
-    border-bottom: 2px solid #214a7c;  
-}
-
-#menu-header h5{   
     font-family: var(--font-lexend-giga);
     color: #fff;
+    height: 4.5vw;
+}
+
+#menu-header h5{
+    font-size: 1.5vw;
 }
 
 #menu-header button{
     color: #fff;
     filter: invert(1); 
     background-color: none;
+    font-size: 1.3vw;
 }
 
 #menu-body{
-    background: linear-gradient(180deg, #326CB4 0%, #0f51a3 100%);
+    padding-top: 3vh;
 }
 
 #menu-itens{                                            
-    font-family: var(--font-roboto);      
+    font-family: var(--font-roboto);   
+    font-size: 1.2vw;   
 }
 
 /* animação */
@@ -99,7 +126,6 @@
 
     .circles {
         animation: moveUp 25s linear infinite; 
-        opacity: 0.5;
         bottom: -20vh;
         position: absolute;
         border-radius: 50vh;
@@ -112,9 +138,9 @@
     #circle2{ width: 2vw; height: 2vw; left: 60%; animation-delay: 2s; animation-duration: 25s; }
     #circle3{ width: 1.5vw; height: 1.5vw; left: 30%; animation-delay: 4s; animation-duration: 35s; }
     #circle4{ width: 3vw; height: 3vw; left: 16%; animation-delay: 5s; animation-duration: 45s; }
-    #circle5{ width: 4vw; height: 4vw; left: 70%; animation-delay: 6s; animation-duration: 15s; }
+    #circle5{ width: 4vw; height: 4vw; left: 70%; animation-delay: 6s; animation-duration: 55s; }
     #circle6{ width: 2vw; height: 2vw; left: 40%; animation-delay: 5s;}
-    #circle7{ width: 4vw; height: 4vw; left: 90%; animation-delay: 10s; animation-duration: 11s; }
+    #circle7{ width: 4vw; height: 4vw; left: 90%; animation-delay: 10s; animation-duration: 21s; }
     #circle8{ width: 5vw; height: 5vw; left: 50%; animation-delay: 13s; animation-duration: 25s; }
     #circle9{ left: 10%; animation-delay: 20s; animation-duration: 35s; }
 
@@ -132,505 +158,370 @@
 /* fim da animação */
 
 #icon-menu{
-    width: 1.6vw;
+    width: 1.5vw;
     margin-left: 1.5vw; 
     filter: invert(0.8); /* deixa o icon branco */                    
 }
-
-#dropdown-menu{
-    background-color: #285791;
-    margin-left:1.7vw;
-}
-
-#dropdown-menu a{
-    padding-left: 1.5vw; 
-    color: #fff;
-}
-
-#dropdown-menu a:hover{
-    background-color: #ecc664;
-    border-left: 0.5vh solid #F1C247;
-}
-
 
 #nav-link{
     margin-bottom: 1.7vh;
     color:#fff;
     opacity: 0.8;
-    transition: 0.1s ease;
 }
 
 #nav-link:hover{
     opacity: 0.8;
     border-left: 0.5vh solid #F1C247;
 }
-/* fim do navbar */
 
-/* fim da ... */
-
-/* Login Pop-Up */
-#Popup-Login {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-}
-#Popup-Login:target {
-    visibility: visible;
-    opacity: 1;
-    z-index: 100;
-}
-.popup {
-    margin: 70px auto;
-    padding: 20px;
-    background: #ebe9e9;
-    border-radius: 5px;
-    width: 60%;
-    position: relative;
-    transition: all 5s ease-in-out;
-}
-.popup .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    transition: all 200ms;
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
-}
-.popup .close:hover {
-    color: #326cb4;
-}
-.popup .content {
-    max-height: 30%;
-    overflow: auto;
-}
-
-@media screen and (max-width: 700px){
-    .box{
-        width: 70%;
-    }
-    .popup{
-        width: 70%;
-    }
-}
-
-    /* Login Pop-Up Banner */
-
-    #Login-Banner
-    {
-        background-image: url('/img/Sign-Banner.jpg');
-        background-size: cover;
-        height: 40vw;
-        width: max-content;
-        background-position: center;
-    }
-    #Sign-Banner
-    {
-        background-image: url('/img/Login-Banner.jpg');
-        background-size: cover;
-        height: 40vw;
-        width: max-content;
-        background-position: center;
-    }
-
-    /* Login Pop-Up - Formulário */
-
-    #Person-Icon
-    {
-        font-size: 30px;
-        color: #662d91;
-        position: relative;
-        margin-top: 1rem;
-        
-    }
-    #Popup-Login_Title
-    {
-        font-size: 1.5vw;
-    }
-    #form-signup
-    {
-        margin: 2rem;
-        border-radius: 0px;
-        /* size: 100vw; */
-    }
-    #login-href
-    {
-        text-decoration: none;
-        color: black;
-        font-weight: 600;
-    }
-    #signup-btn
-    {
-        width: 90%;
-        background-image: linear-gradient(#cc43fee8, #6e7c9fe1);
-        border: 0px;
-        color: white;
-        border-radius: 5px 5px 5px 5px;
-        margin: 1rem 0rem 1rem 0rem;
-    }
-    #form-signup input
-    {
-        border-top: 0px;
-        border-right: 0px;
-        border-color: #662d91;
-        border-radius: 0px;
-        box-shadow: 0px 3px 2px rgba(78, 78, 78, 0.616);
-    }
-
-/* Cadastro Pop-Up */
-    #Popup-Sign {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.7);
-        transition: opacity 500ms;
-        visibility: hidden;
-        opacity: 0;
-    }
-    #Popup-Sign:target {
-        visibility: visible;
-        opacity: 1;
-        z-index: 100;
-    }
-    .popup {
-        margin: 70px auto;
-        padding: 20px;
-        background: #ebe9e9;
-        border-radius: 5px;
-        width: 60%;
-        position: relative;
-        transition: all 5s ease-in-out;
-    }
-    .popup .close {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        transition: all 200ms;
-        font-size: 30px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #333;
-    }
-    .popup .close:hover {
-        color: #326cb4;
-    }
-    .popup .content {
-        max-height: 30%;
-        overflow: auto;
-    }
-    
-    @media screen and (max-width: 700px){
-        .box{
-            width: 70%;
-        }
-        .popup{
-            width: 70%;
-        }
-    }
-
-#sign-up-p
+/* Responsividade Navbar (Mobile) */
+@media screen and (orientation: portrait)
 {
-    font-size: 1.3vw;
-    color: black;
-}
 
-#home-body
-{
-    overflow-x: hidden;
+    #logo-home{
+       /*  width: auto;
+        max-height: 6vh; */
+        width: 32vw;
+    }
+
+    #btn-cadastrar
+    {
+        min-width: auto;
+        min-height: 4vh;
+        font-size: 1.5vh;
+    }
+
+    #img-profile
+    {
+       width: 6vw;
+       height: auto;
+    }
+
+    #menu-preptec{
+        min-width: 75vw;
+    }
+
+    #menu-header{
+        height: 6vh;
+    }
+
+    #menu-header h5{
+        font-size: 3.5vw !important;
+        margin-left: 3vw !important;
+    }
+
+    #btn-close{
+        font-size: 1.7vh !important;
+    }
+
+    #icon-menu{
+        width: 4vw !important;
+        height: 4vw !important;
+        margin-left: 3vw !important;
+    }
+
+    #nav-link{
+        margin-bottom: 2.5vh !important;
+        font-size: 2vh;
+    }
+
+    /* animação mobile */
+        .circles {
+            bottom: -6vh !important;
+        }
+
+        #circle1{ min-width: 7vw; min-height: 7vw;}
+        #circle2{ min-width: 4vw; min-height: 4vw;}
+        #circle3{ min-width: 3vw; min-height: 3vw;}
+        #circle4{ min-width: 5vw; min-height: 5vw;}
+        #circle5{ min-width: 6vw; min-height: 6vw;}
+        #circle6{ min-width: 4vw; min-height: 4vw;}
+        #circle7{ min-width: 6vw; min-height: 6vw;}
+        #circle8{ min-width: 7vw; min-height: 7vw;}
+
+        @keyframes moveUp {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-20vh) !important;
+                opacity: 0;
+            }
+        }
+
+    /* fim animação mobile */
+
 }
 
 /* Banner da Home */
-#banner-home{
-    max-width: 100vw; 
-    height: 100%; 
-    background: linear-gradient(180deg, #326CB4 0%, #224A7C 100%);
-}
-#menu-preptec
-{
-    width: 100%;
-}
-#col-text-banner{
-    max-width: 50vw;
-    height: 100%;
-    padding: 22vh 0 0 7vw;
-    font-family: var(--font-roboto);       
-    font-weight: 400;        
-}
-#col-text-banner-mobile
-{
-    display: none;
-}
-#col-text-banner h5, #col-text-banner p{
-    color: #fff;
-    font-size: 3.7vh;
-    padding: 1vh;
-    font-size: 1.8vw;
-}
+    #banner-home{
+        max-width: 100vw; 
+        height: 100%; 
+        background: linear-gradient(180deg, #326CB4 0%, #224A7C 100%);
+    }
+    #menu-preptec
+    {
+        width: 100%;
+    }
 
-#col-text-banner h2{
-    font-size: 4.5vw;
-    color:#F1C247;
-    width: 40vw;
-    font-family: var(--font-gabarito);
-} 
+    /*Textos Banner*/
+        #col-text-banner{
+            max-width: 50vw;
+            height: 100%;
+            padding: 22vh 0 0 7vw;
+            font-family: var(--font-roboto);       
+            font-weight: 400;        
+        }
+        #col-text-banner-mobile
+        {
+            display: none;
+        }
+        #col-text-banner h5, 
+        #col-text-banner p{
+            color: #fff;
+            font-size: 3.7vh;
+            padding: 1vh;
+            font-size: 1.8vw;
+        }
 
-#btn-login {
-    display: inline-block;
-    width: 20vw;
-    height: 10vh;
-    padding: 1vh 1vw;
-    border: 0.3vh solid #fff;
-    margin-top: 3vh;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-}
+        #col-text-banner h2{
+            font-size: 4.5vw;
+            color:#F1C247;
+            width: 40vw;
+            font-family: var(--font-gabarito);
+        } 
+    /*Fim dos Textos Banner*/
 
-#btn-login button{
-    width: 100%;
-    height: 100%;
-    border: 0;
-    border-radius: 0;
-    background-color: #F1C247;
-}
-#btn-login a{
-    color: black;
-    text-decoration: none;
-    font-family: var(--font-gabarito);
-    font-size: 1.2vw;
-}
+    /*Botão Login*/
+        #btn-login {
+            display: inline-block;
+            width: 20vw;
+            height: 10vh;
+            padding: 1vh 1vw;
+            border: 0.3vh solid #fff;
+            margin-top: 3vh;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
 
-#btn-login button:hover{
-    background-color: #f1b417;
-    font-size: 2.8vh;
+        #btn-login button{
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 0;
+            background-color: #F1C247;
+        }
+        #btn-login a{
+            color: black;
+            text-decoration: none;
+            font-family: var(--font-gabarito);
+            font-size: 1.2vw;
+        }
 
-}
+        #btn-login button:hover{
+            background-color: #f1b417;
+            font-size: 2.8vh;
 
-#col-img-banner{                
-    display: flex;
-    justify-content: flex-end; /* Alinha a imagem à direita */
-    height: 47vw;
-    padding: 0;
-    margin: 0;
-    position: relative;  
-}
+        }
+    /*Fim do Botão Login*/
 
-#col-img-banner img{  
-   
-    width:48vw;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+    /*Imagem*/
+        #col-img-banner{                
+            display: flex;
+            justify-content: flex-end; /* Alinha a imagem à direita */
+            height: 47vw;
+            padding: 0;
+            margin: 0;
+            position: relative;  
+        }
+
+        #col-img-banner img{  
+        
+            width:48vw;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    /*Fim da Image,*/
 
 /* Fim banner da Home */
 
 /* O que é PrepTEC - Parte 2 do site */
-#d-part2-preptec-father-desktop
-{
-    position: relative;
-    width: 100%;
-    height: 50vw;
-}
-#d-preptec-title, 
-#d-etec-title
-{
-    text-align: center;
-    font-family: var(--font-lexend-giga);
-    font-size: var(--size-title);
-}
-#d-preptec-title
-{
-    color: var(--color-yellow-1);
-    position: relative;
-    top: 15%; 
-    left: 10%;
-}
-#d-preptec
-{
-    /*Posição*/
-    position: relative;
-    top: 25%;
-    display: flex;
-    /*Tamanho*/
-    width: 80vw;
-    height: 15vw;
-    /*Cores*/
-    background-image: linear-gradient(to right,  rgba(241, 193, 71, 0.64), rgba(241, 193, 71, 0.24));
-    color: black;
-    /*Texto*/
-    font-family: var(--font-roboto);
-    justify-content: space-between;
-    /*Outros*/
-    border-radius: 0 7vh 7vh 0;
-}
-#d-preptec-character-shadow
-{
-    position: relative;
-    left: 1%;
-    top: 30%;
-    background-color: rgb(0, 0, 0, 0.2);
-    width: 30vw;
-    height: 10vw;
-    border-radius: 50%;
-}
-#d-preptec-character-shadow-1
-{
-    float: right;
-    position: relative;
-    left: 14%;
-    top: 25%;
-    background-color: rgb(0, 0, 0, 0.2);
-    width: 30vw;
-    height: 10vw;
-    border-radius: 50%;
-}
-#img-part2-character01, 
-#img-part2-character02,
-#img-part2-character03,
-#img-part2-character04,
-#img-part2-character05
-{
-    width: auto;
-    height: 20.5vw;
-    position: relative;
-    display: inline-block;
-}
-#img-part2-character01 
-{
-    left: 5%;
-    bottom: 15vw;
-}
-#img-part2-character02 
-{
-    left: 6%;
-    bottom: 17vw;
-}
-#img-part2-character03 
-{
-    left: 7%;
-    bottom: 15vw;
-}
-#img-part2-character04
-{
-    left: 20%;
-    bottom: 17vw;
-}
-#img-part2-character05
-{
-    left: 10%;
-    bottom: 15vw;
-}
-#d-preptec-txt-column
-{
-    width: 39vw;
-    height: fit-content;
-    position: relative;
-    top: 2vw;
-    right: 6vh;
-    display: inline-block;
-}
-#d-etec-txt-column
-{
-    width: 39.5vw;
-    height: fit-content;
-    position: relative;
-    bottom: 9vw;
-    left: 4vh;
-    display: inline-block;
-}
-#d-yc-text
-{
-    color: var(--color-black-1);
-    font-size: var(--size-main-content);
-}
-#d-preptec-row
-{
-    position: relative;
-    top: 26%;
-    right: 35vh;
-    pointer-events: none;
-}
-#post-it-col-left
-{
-    position: relative;
-    pointer-events: none
-}
-#post-it-col-left center
-{
-    pointer-events: none;
-}
-#post-it-col-right
-{
-    position: relative;
-    pointer-events: none;
-}
-#post-it-col-right center
-{
-    pointer-events: none;
-}
-#div-post-it-yc
-{
-    position: relative;
-    background-color: var(--color-blue-1); 
-    width: var(--size-post-it);
-    height: var(--size-post-it);
-    left: 45%;
-    border-radius: 3vh;
-    pointer-events: all;
-}
-#div-post-it-durex-blue,
-#div-post-it-durex-yellow
-{
-    width: 1.8vh;
-    height: 1.6vw;
-    position: relative;
-    opacity: 90%;
-    bottom: 8%;
-}
-#div-post-it-durex-blue
-{
-    background-color: var(--color-blue-3);
-}
-#div-post-it-durex-yellow
-{
-    background-color: var(--color-yellow-4); 
-  
-}
-#post-it-text-1
-{
-    position: relative;
-    font-family: var(--font-schoolbell);
-    font-size: var(--size-post-it-text);
-    color: white;
-    top: 15%;
-    text-decoration: none;
-    pointer-events: all;
-}
-#post-it-text
-{
-    position: relative;
-    font-family: var(--font-schoolbell);
-    font-size: var(--size-post-it-text);
-    color: white;
-    top: 7%;
-    text-decoration: none;
-    pointer-events: all;
-}
-#post-it-col-right
-{
-    position: relative;
-    right: 35%;
-}
+    #d-part2-preptec-father-desktop
+    {
+        position: relative;
+        width: 100%;
+        height: 50vw;
+    }
+
+    /*Textos Preptec*/
+        #d-preptec-title, 
+        #d-etec-title
+        {
+            text-align: center;
+            font-family: var(--font-lexend-giga);
+            font-size: var(--size-title);
+        }
+        #d-preptec-title
+        {
+            width: 60vw;
+            color: var(--color-yellow-1);
+            position: relative;
+            top: 15%; 
+            left: 30%;
+        }
+        #d-preptec-txt-column
+        {
+            width: 39vw;
+            height: fit-content;
+            position: relative;
+            top: 2vw;
+            right: 6vh;
+            display: inline-block;
+        }
+    
+    /*Design Preptec*/
+        #d-preptec
+        {
+            /*Posição*/
+            position: relative;
+            top: 25%;
+            display: flex;
+
+            /*Tamanho*/
+            width: 80vw;
+            height: 15vw;
+
+            /*Cores*/
+            background-image: linear-gradient(to right,  rgba(241, 193, 71, 0.64), rgba(241, 193, 71, 0.24));
+            color: black;
+
+            /*Texto*/
+            font-family: var(--font-roboto);
+            justify-content: space-between;
+
+            /*Outros*/
+            border-radius: 0 7vh 7vh 0;
+        }
+        #d-preptec-character-shadow
+        {
+            position: relative;
+            left: 1%;
+            top: 30%;
+            background-color: rgb(0, 0, 0, 0.2);
+            width: 30vw;
+            height: 10vw;
+            border-radius: 50%;
+        }
+        #img-part2-character01, 
+        #img-part2-character02,
+        #img-part2-character03,
+        #img-part2-character04,
+        #img-part2-character05
+        {
+            width: auto;
+            height: 20.5vw;
+            position: relative;
+            display: inline-block;
+        }
+        #img-part2-character01 
+        {
+            left: 5%;
+            bottom: 15vw;
+        }
+        #img-part2-character02 
+        {
+            left: 6%;
+            bottom: 17vw;
+        }
+        #img-part2-character03 
+        {
+            left: 7%;
+            bottom: 15vw;
+        }
+
+    
+    
+    #d-preptec-row
+    {
+        position: relative;
+        top: 26%;
+        right: 35vh;
+        pointer-events: none;
+    }
+    #post-it-col-left
+    {
+        position: relative;
+        pointer-events: none
+    }
+    #post-it-col-left center
+    {
+        pointer-events: none;
+    }
+    #post-it-col-right
+    {
+        position: relative;
+        pointer-events: none;
+    }
+    #post-it-col-right center
+    {
+        pointer-events: none;
+    }
+    #div-post-it-yc
+    {
+        position: relative;
+        background-color: var(--color-blue-1); 
+        width: var(--size-post-it);
+        height: var(--size-post-it);
+        left: 45%;
+        border-radius: 3vh;
+        pointer-events: all;
+    }
+    #div-post-it-durex-blue,
+    #div-post-it-durex-yellow
+    {
+        width: 1.8vh;
+        height: 1.6vw;
+        position: relative;
+        opacity: 90%;
+        bottom: 8%;
+    }
+    #div-post-it-durex-blue
+    {
+        background-color: var(--color-blue-3);
+    }
+    #div-post-it-durex-yellow
+    {
+        background-color: var(--color-yellow-4); 
+    
+    }
+    #post-it-text-1
+    {
+        position: relative;
+        font-family: var(--font-schoolbell);
+        font-size: var(--size-post-it-text);
+        color: white;
+        top: 15%;
+        text-decoration: none;
+        pointer-events: all;
+    }
+    #post-it-text
+    {
+        position: relative;
+        font-family: var(--font-schoolbell);
+        font-size: var(--size-post-it-text);
+        color: white;
+        top: 7%;
+        text-decoration: none;
+        pointer-events: all;
+    }
+    #post-it-col-right
+    {
+        position: relative;
+        right: 35%;
+    }
 /* O que é Etec? - Parte 3*/
 #d-part3-father-desktop
 {
@@ -662,6 +553,45 @@
     justify-content: space-between;
     /*Outros*/
     border-radius: 7vh 0 0 7vh;
+}
+/*Textos Etec*/
+#d-etec-txt-column
+{
+    width: 39.5vw;
+    height: fit-content;
+    position: relative;
+    bottom: 9vw;
+    left: 4vh;
+    display: inline-block;
+}
+#d-yc-text
+{
+    color: var(--color-black-1);
+    font-size: var(--size-main-content);
+}
+
+/*Design Etec*/
+#d-preptec-character-shadow-1
+{
+    float: right;
+    position: relative;
+    left: 14%;
+    top: 25%;
+    background-color: rgb(0, 0, 0, 0.2);
+    width: 30vw;
+    height: 10vw;
+    border-radius: 50%;
+}
+
+#img-part2-character04
+{
+    left: 20%;
+    bottom: 17vw;
+}
+#img-part2-character05
+{
+    left: 10%;
+    bottom: 15vw;
 }
 #d-characters-student
 {
@@ -792,6 +722,7 @@
 }
 #btn-part4-bbs-createaccount
 {
+    background-color: #ffce53;
     width: 31vh;
     height: 13vh;
 }
@@ -800,6 +731,45 @@
     font-size: var(--size-btn-creataccount-txt);
     text-decoration: none;
     color: var(--color-black-1);
+}
+
+
+/* animação btn criar conta */
+    #d-part4-bbs-column button:hover {
+        background-color: transparent;
+    }
+
+    #d-part4-bbs-column button:hover:before {
+        left: 0%;
+        right: auto;
+        width: 100%;
+    }
+
+    #d-part4-bbs-column button:before{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: auto;
+        height: 100%;
+        width: 0%;
+        z-index: -1;
+        content: '';
+        background-color: #f1b418;
+        font-size: 3.5vh;
+        transition: all 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+    }
+
+    #btn-part4-bbs-createaccount{
+        cursor: pointer;
+        position: relative;
+        transition: all 0.5s cubic-bezier(0.42, 1, 0.58, 0);
+        overflow: hidden; 
+        z-index: 1;
+    }
+/* fim da animação btn criar conta */
+
+#d-part4-bbs-column button:hover{
+    background-color: #eeb527;
 }
 #d-part2-preptec-father-mobile
 {
@@ -832,15 +802,24 @@
 /*Fim do Desktop*/
 
 /*Mobile*/
+    #home-body
+    {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+    }
     #banner-home
     {
         position: relative;
         max-width: 100%;
+        margin: 0;
+        border: 0;
         height: max-content;
         padding-bottom: 3vh;
     }
     #navbar-preptec
     {
+        max-width: 100%;
         max-height: 100%;
     }
     #menu-preptec
@@ -861,7 +840,7 @@
     #icon-menu
     {
         width: 2vh;
-        margin-left: 3vw; 
+        margin-left: 4vw; 
     }
     #nav-link
     {
@@ -874,21 +853,6 @@
     #dropdown-menu a
     {
         font-size: 2vh;
-    }
-    #logo
-    {
-        height: 5vh;
-    }
-    #btn-hamburguer{
-        justify-content: right;
-        margin-right: 3vh;
-        border: 0.3vh solid #adc7d1;
-        border-radius: 1vh;
-        padding-left: 1.5vw;
-        padding-right: 1.5vw;
-        padding-top: 0.5vh;
-        padding-bottom: 0.5vh;
-        font-size: 1.2vh;
     }
     #col-img-banner
     {
@@ -915,10 +879,9 @@
         border-width: 0.2vh;
         border-radius: 50%;
     }
-    #col-text-banner-mobile h5, #col-text-banner-mobile p{
+    #col-text-banner-mobile p{
         color: #fff;
-        font-size: 3.7vh;
-        font-size: 2.5vh;
+        font-size: 4.7vw;
         margin-bottom: 10vh;
         width: 65vw;
     }
@@ -949,7 +912,7 @@
     .d-partM-colTemplate
     {
         padding: 5vh;
-        width: 100%;
+        width: 96%;
         height: auto;
         font-size: var(--size-main-content);
         font-family: var(--font-roboto);
@@ -990,8 +953,9 @@
     {
         position: relative;
         max-width: 100%;
-        height: 80vh;
+        height: 90vh;
         padding: 0;
+        margin: 0;
         display: block;
     }
     /*Parte 2*/
@@ -1025,12 +989,24 @@
         #d-part2M-colAmarela
         {
             background-image: linear-gradient(to right,  rgba(241, 193, 71, 0.64), rgba(241, 193, 71, 0.24));
+            width: 100%;
+        }
+        #d-part2M-colAmarela p
+        {
+            font-size: 4.7vw;
+            font-family: var(--font-roboto);
         }
         #btn-part2M-btnAzul
         {
             background-color: var(--color-blue-1);
             border-color: var(--color-blue-4);
+        }
+        #btn-part2M-btnAzul a
+        {
             color: var(--color-white);
+            font-family: var(--font-roboto);
+            font-size: 2vh;
+            text-decoration: none;
         }
         #img-part2M-pA2
         {
@@ -1044,7 +1020,8 @@
         border-bottom: 0.1vh solid var(--color-black-1);
         position: relative;
         max-width: 100%;
-        height: 60vh;
+        height: 80vh;
+        margin: 0;
         padding: 0;
         display: block;
     }
@@ -1057,6 +1034,12 @@
         #d-part3M-colAzul
         {
             background-image: linear-gradient(to left, var(--color-blue-1), #326db46c);
+            width: 100%;
+        }
+        #d-part3M-colAzul p
+        {
+            font-size: 4.7vw;
+            font-family: var(--font-roboto);
         }
         #btn-part3M-btnAmarelo
         {

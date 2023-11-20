@@ -1,11 +1,11 @@
-@extends('layouts.mainNavbarOnly')
+@extends('layouts.main-NavbarOnly')
 
-@section('title', 'Listar Questões do Simulado - PrepTEC')
+@section('title', 'Listar Simulado - PrepTEC')
 
 @section('content')
 
 <!--Importação CSS e JS-->
-    <link rel="stylesheet" href="/css/crudpages.css">
+    <link rel="stylesheet" href="/css/admin/crud.css">
 <!--Fim da Importação CSS e JS-->
 
 <!--Container Principal-->
@@ -25,8 +25,9 @@
                 <!--Fim da Coluna Titulo-->
 
                 <!--Fomulario Pesquisar-->
-                    <form method="post" action="{{ url('/simulado/pesquisar') }}" style="appearance: none;">
+                    <form method="POST" action="{{ url('/simulado/pesquisar') }}" style="appearance: none;">
                         @csrf
+                        @method('get')
                         <!--Coluna Barra de Pesquisa e Botões-->
                             <div class="col" id="d-CRUD-R-colSearchBar-BTNread">
 
@@ -50,7 +51,7 @@
 
                                                                         <!--Coluna Input-->
                                                                             <div class="col" id="d-CRUD-R-colSeachInput">
-                                                                                <input type="text" id="input-CRUD-R-seachInput" placeholder="Pesquisar" name="query">
+                                                                                <input type="text" id="input-CRUD-R-seachInput" placeholder="Pesquisar" name="query" required>
                                                                             </div>
                                                                         <!--Fim da Coluna Input-->
 
@@ -69,7 +70,7 @@
                         </form>
                     <!--Fim do Formulario Pesquisar-->
                     
-                                                <button id="btn-CRUD-R-btnNovo"><a href="/simulado/cadastrar" id="txt-CRUD-R-btnNovo">Novo</a></button>
+                                                <button id="btn-CRUD-R-btnNovo" type="button" onclick="window.location='/simulado/cadastrar'"><a href="/simulado/cadastrar" id="txt-CRUD-R-btnNovo">Novo</a></button>
                                             </div>
                                         <!--Fim da Coluna Botões-->
 
@@ -132,7 +133,9 @@
                                                                 <!-- Icone + título do formulário -->
                                                                 <center>
                                                                     <ion-icon name="trash-outline" id="Trash-Icon"></ion-icon> <h1 id="Popup-Excl_Title"> Excluir </h1>
-                                                                    <form action="{{ route('excluir_questao', ['id_quest' => $quest->id_quest]) }}" method="POST" id="table-quest-voc-form-excl-{{$quest->id_quest}}">
+                                                                    
+                                                                        <!--Não Entendi-->
+                                                                        <form action="{{ route('excluir_questao', ['id_quest' => $quest->id_quest]) }}" method="POST" id="table-quest-voc-form-excl-{{$quest->id_quest}}">
                                                                         @csrf
                                                                         @method('delete')
                                                                         <input type="text" value="{{$quest->id_quest}}" name="id_quest" hidden>                

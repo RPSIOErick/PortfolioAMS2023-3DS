@@ -1,10 +1,10 @@
-@extends('layouts.mainNavbarOnly')
+@extends('layouts.main-NavbarOnly')
 
-@section('title', 'Editar Questões do Simulado - PrepTEC')
+@section('title', 'Editar Simulado - PrepTEC')
 
 @section('content')
 
-<link rel="stylesheet" href="/css/crudpages.css">
+<link rel="stylesheet" href="/css/admin/crud.css">
 
 <!-- Container de Criação de Questões -->
     <div class="container-fluid">
@@ -61,14 +61,14 @@
                                 <!--Campo Questão-->
                                     <div class="col">
                                         <label id="txt-CRUD-CU-label-template">Questão</label><br>
-                                        <textarea id="input-CRUD-CU-bigInp-template" name="txt_quest" placeholder="Adicione aqui o texto da questão...">{{$quest->txt_quest}}</textarea>
+                                        <textarea id="input-CRUD-CU-bigInp-template" name="txt_quest" placeholder="Adicione aqui o texto da questão..." required>{{$quest->txt_quest}}</textarea>
                                     </div>
                                 <!--Fim do Campo Questão-->
 
                                 <!--Campo Pergunta-->
                                     <div class="col">
                                         <label id="txt-CRUD-CU-label-template">Pergunta</label><br>
-                                        <textarea id="input-CRUD-CU-bigInp-template" name="txt_perg" placeholder="Adicione aqui a questão...">{{$quest->txt_perg}}</textarea>
+                                        <textarea id="input-CRUD-CU-bigInp-template" name="txt_perg" placeholder="Adicione aqui a questão..." required>{{$quest->txt_perg}}</textarea>
                                     </div>
                                 <!--Fim do Campo Pergunta-->
 
@@ -133,7 +133,7 @@
 
                                                                                 <!--Coluna Input-->
                                                                                     <div class="col"  id="d-CRUD-CU-altInput">
-                                                                                        <textarea class="input-CRUD-CU-alt" id="input-CRUD-CU-alt" name="alternativas[{{ $index }}][text_alternativas]">{{ $alternativa->txt_alter}}</textarea>
+                                                                                        <textarea class="input-CRUD-CU-alt" id="input-CRUD-CU-alt" name="alternativas[{{ $index }}][text_alternativas]" required>{{ $alternativa->txt_alter}}</textarea>
                                                                                     </div>
                                                                                 <!--Fim da Coluna Input-->
 
@@ -145,7 +145,7 @@
 
                                                                 <!--Checkbox-->
                                                                     <div class="col" id="d-CRUD-CU-alt-checkbox">
-                                                                        <input type="checkbox" class="d-simu-create-alternativa1-radio" name="alternativas[{{$index}}][alternativas_certa]" id="d-simu-create-alternativa1-radio-{{  $index  }}" @if ($alternativa->alter_true == 1) checked @endif>
+                                                                        <input type="radio" class="d-simu-create-alternativa1-radio" name="alternativas[{{$index}}][alternativas_certa]" id="d-simu-create-alternativa1-radio-{{  $index  }}" @if ($alternativa->alter_true == 1) checked @endif>
                                                                     </div>
                                                                 <!--Fim do Checkbox-->
 

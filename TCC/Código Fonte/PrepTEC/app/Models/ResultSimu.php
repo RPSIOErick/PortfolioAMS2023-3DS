@@ -10,7 +10,7 @@ class ResultSimu extends Model
     use HasFactory;
 
     public $timestamps = false;
-    protected $table = "ResultSimu";
+    protected $table = "resultsimu";
     protected $fillable = [
         'id_usuario',
         'id_simu',

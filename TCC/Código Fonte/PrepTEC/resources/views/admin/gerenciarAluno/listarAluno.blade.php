@@ -1,11 +1,11 @@
-@extends('layouts.mainNavbarOnly')
+@extends('layouts.main-NavbarOnly')
 
-@section('title', 'Listar Questões do Simulado - PrepTEC')
+@section('title', 'Listar Estudantes - PrepTEC')
 
 @section('content')
 
 <!--Importação CSS e JS-->
-    <link rel="stylesheet" href="/css/crudpages.css">
+    <link rel="stylesheet" href="/css/admin/crud.css">
 <!--Fim da Importação CSS e JS-->
 
 <!--Container Principal-->
@@ -27,6 +27,7 @@
                 <!--Fomulario Pesquisar-->
                     <form method="post" action="{{ url('/estudante/pesquisar') }}">
                         @csrf
+                        @method('get')
                         <!--Coluna Barra de Pesquisa e Botões-->
                             <div class="col" id="d-CRUD-R-colSearchBar-BTNread">
 
@@ -50,7 +51,7 @@
 
                                                                 <!--Coluna Input-->
                                                                     <div class="col" id="d-CRUD-R-colSeachInput">
-                                                                        <input type="text" id="input-CRUD-R-seachInput" placeholder="Pesquisar">
+                                                                        <input type="text" id="input-CRUD-R-seachInput" placeholder="Pesquisar" name="query" required>
                                                                     </div>
                                                                 <!--Fim da Coluna Input-->
 

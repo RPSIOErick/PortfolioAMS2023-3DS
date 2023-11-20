@@ -1,4 +1,5 @@
 <html>
+    <!-- Home Nova -->
     <head>
         <!--Configuração da Página-->
             <meta charset="utf-8">
@@ -7,22 +8,18 @@
         <!--Fim da Configuração da Página-->
 
         <!--Importação do Bootstrap-->
-            @vite([
-                'resources/js/app.js',
-                'resources/css/app.css',
-                'node_modules/bootstrap/dist/css/bootstrap.min.css',
-                'node_modules/bootstrap/dist/js/bootstrap.bundle.js'
-            ])
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
         <!--Fim da Importação do Bootstrap-->
 
         <!--Importação CSS e JS-->
             <link rel="stylesheet" href="/css/home.css">
-            <link rel="stylesheet" href="/css/main.css">
-            <link rel="stylesheet" href="/css/loginAndCreateAccount.css">
+            <link rel="stylesheet" href="/css/layouts/login-createAccount.css">
+            <link rel="stylesheet" href="/css/layouts/footer.css">
         <!--Fim da Importação CSS e JS-->
 
         <!-- Ícone na barra de endereço do site -->
-        <link rel="shortcut icon" type="imagex/png" href="/img/icon/Logo_Alter_No-Traces-Icon.ico">
+            <link rel="shortcut icon" type="imagex/png" href="/img/layouts/logo-icon.ico">
         
         
     </head>
@@ -33,171 +30,178 @@
         <nav class="navbar navbar-dark fixed-top" id="navbar-preptec" style="background-color: transparent;"> <!-- Background não pega no CSS -->
             
             <!-- logo -->
-            <img src="/img/Logo_Alter_No-Traces.png" alt="Logo PrepTec" id="logo" width="190">
+                <img src="/img/layouts/navbar/logo-preptec.png" class="img-fluid" alt="Logo PrepTec" id="logo-home">
             
-            @php
-            use Illuminate\Support\Facades\Session;
-            use App\Models\Usuario;
+                    @php
+                    use Illuminate\Support\Facades\Session;
+                    use App\Models\Usuario;
 
-            $conta = array();
-            if(Session::has('loginId')){
+                    $conta = array();
+                    if(Session::has('loginId')){
 
-                $conta = Usuario::where('id_usuario', '=', Session::get('loginId'))->first();
+                        $conta = Usuario::where('id_usuario', '=', Session::get('loginId'))->first();
 
-            }
+                    }
 
-            @endphp
+                    @endphp
 
-            <!--Imagem de Perfil-->
-            @if(!empty($conta->fotoUsuario))
-                        
-                <img src="{{ asset('storage/users/'. $conta->fotoUsuario) }}" alt="Foto do perfil" onclick="window.location='/minhaconta'" id="img-profile">
-            
-            @endif
-            
-            <!-- Botão para ativar o menu lateral -->
-            <button class="navbar-toggler" id="btn-hamburguer" type="button" data-bs-toggle="offcanvas" data-bs-target="#menu-preptec" aria-controls="menu-preptec" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Fim do botão para ativar o menu lateral -->
-
-            <!-- menu lateral -->
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="menu-preptec" aria-labelledby="offcanvasDarkNavbarLabel">
-                    
-                    <!-- header -->
-                        <div class="offcanvas-header" id="menu-header" style="box-shadow: 0px 1vh 1vh #214a7c;">
-                            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">PrepTec</h5>
-
-                            <!-- botão de fechar o menu lateral -->
-                            <button type="button" class="btn-close" id="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
-                    <!-- fim do header -->
-
-                    <!-- body -->
-                        <div class="offcanvas-body" id="menu-body">
-                            
-                            <!-- animação -->
-                                <div id="background-animation">
-
-                                    <!-- esferas da animação -->
-                                        <div class="circles" id="circle1"></div>
-                        
-                                        <div class="circles" id="circle2"></div>
+                    <!--Imagem de Perfil-->
+                        @if(!empty($conta->fotoUsuario))
                                     
-                                        <div class="circles" id="circle3"></div>
+                            <img src="{{ asset('../users/'. $conta->fotoUsuario) }}" class="img-fluid" alt="Foto do perfil" onclick="window.location='/minhaconta'" id="img-profile">
                         
-                                        <div class="circles" id="circle4"></div>                
-                        
-                                        <div class="circles" id="circle5"></div>
-                        
-                                        <div class="circles" id="circle6"></div>
-                        
-                                        <div class="circles" id="circle7"></div>
-                        
-                                        <div class="circles" id="circle8"></div>
-                        
-                                        <div class="circles" id="circle9"></div> 
-                                    <!-- fim das esferas -->
+                        @endif
+                    
+                    <!-- Botão para ativar o menu lateral -->
+                        <button class="navbar-toggler" id="btn-hamburguer" type="button" data-bs-toggle="offcanvas" data-bs-target="#menu-preptec" aria-controls="menu-preptec" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    <!-- Fim do botão para ativar o menu lateral -->
 
-                                    <!-- itens do menu -->
-                                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" id="menu-itens">
+                    <!-- menu lateral -->
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="menu-preptec" aria-labelledby="offcanvasDarkNavbarLabel">
+                            
+                            <!-- header -->
+                                <div class="offcanvas-header" id="menu-header">
+                                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">PrepTEC</h5>
 
-                                            <!-- home -->
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="nav-link" href="/">
-                                                    <img src="\img\home_icon.png" id="icon-menu"/> &nbsp;
-                                                    Home
-                                                </a>
-                                            </li>
-
-                                            @if(!empty($conta))
-                                            <!-- área do estudante -->
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="nav-link" href="/areadoaluno"><img src="\img\hat_icon.png" id="icon-menu"/> &nbsp;Área de Estudo</a>
-                                            </li>
-                                            @else
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="nav-link" href="#popup-log-template-bg"><img src="\img\hat_icon.png" id="icon-menu"/> &nbsp;Área de Estudo</a>
-                                            </li>
-                                            @endif
-                                            
-                                            <!-- questionário vocacional -->
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="nav-link" href="/questionariovocacional"><img src="\img\lampada-icon.png" id="icon-menu"/> &nbsp;Questionário Vocacional</a>
-                                            </li>
-
-                                            <!-- informações do vestibulinho -->
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="nav-link" href="/vestibulinho">
-                                                    <img src="\img\info_icon.png" id="icon-menu"/> &nbsp;
-                                                    Informações do Vestibulinho
-                                                </a>
-                                            </li>
-
-                                            @if(!empty($conta))
-                                            <!-- Minha Conta -->
-                                            <li class="nav-item">                
-                                                <a class="nav-link" id="nav-link" href="/minhaconta"><img src="\img\perifl-icon.png" id="icon-menu"/> &nbsp; Minha Conta</a>
-                                            </li>
-                                            @endif              
-                                        </ul>    
-                                    <!-- fim do itens  -->     
+                                    <!-- botão de fechar o menu lateral -->
+                                    <button type="button" class="btn-close" id="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                 </div>
-                            <!-- fim da animação -->
+                            <!-- fim do header -->
+
+                            <!-- body -->
+                                <div class="offcanvas-body" id="menu-body" style="margin-top: 0.5vh">
+                                    
+                                    <!-- animação -->
+                                        <div id="background-animation">
+
+                                            <!-- esferas da animação -->
+                                                <div class="circles" id="circle1"></div>
+                                
+                                                <div class="circles" id="circle2"></div>
+                                            
+                                                <div class="circles" id="circle3"></div>
+                                
+                                                <div class="circles" id="circle4"></div>                
+                                
+                                                <div class="circles" id="circle5"></div>
+                                
+                                                <div class="circles" id="circle6"></div>
+                                
+                                                <div class="circles" id="circle7"></div>
+                                
+                                                <div class="circles" id="circle8"></div>
+                                
+                                                <div class="circles" id="circle9"></div> 
+                                            <!-- fim das esferas -->
+
+                                            <!-- itens do menu -->
+                                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" id="menu-itens">
+
+                                                    <!-- home -->
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" id="nav-link" href="/">
+                                                            <img src="/img/layouts/navbar/iconesMenu/home_icon.png" id="icon-menu"/> &nbsp;
+                                                            Home
+                                                        </a>
+                                                    </li>
+
+                                                    @if(!empty($conta))
+                                                    <!-- área do estudante -->
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" id="nav-link" href="/areadoaluno"><img src="/img/layouts/navbar/iconesMenu/hat_icon.png" id="icon-menu"/> &nbsp;Área de Estudo</a>
+                                                    </li>
+                                                    @else
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" id="nav-link" href="#popup-log-template-bg"><img src="/img/layouts/navbar/iconesMenu/hat_icon.png" id="icon-menu"/> &nbsp;Área de Estudo</a>
+                                                    </li>
+                                                    @endif
+                                                    
+                                                    <!-- questionário vocacional -->
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" id="nav-link" href="/questionario"><img src="/img/layouts/navbar/iconesMenu/lamp_icon.png" id="icon-menu"/> &nbsp;Questionário Vocacional</a>
+                                                        </li>
+
+                                                    <!-- informações do vestibulinho -->
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" id="nav-link" href="/vestibulinho">
+                                                                <img src="/img/layouts/navbar/iconesMenu/info_icon.png" id="icon-menu"/> &nbsp;
+                                                                Informações do Vestibulinho
+                                                            </a>
+                                                        </li>
+
+                                                    @if(!empty($conta))
+                                                    <!-- Minha Conta -->
+                                                        <li class="nav-item">                
+                                                            <a class="nav-link" id="nav-link" href="/minhaconta"><img src="/img/layouts/navbar/iconesMenu/perfil_icon.png" id="icon-menu"/> &nbsp; Minha Conta</a>
+                                                        </li>
+                                                    @endif              
+                                                </ul>    
+                                            <!-- fim do itens  -->    
+
+                                        </div>
+                                    <!-- fim da animação -->
+
+                                </div>
+                            <!-- fim do body -->
+
                         </div>
-                    <!-- fim do body -->
-                </div>
-            <!-- fim do menu -->
+                    <!-- fim do menu -->
         </nav>
-        <!-- Fim da navbar -->
+    <!-- Fim da navbar -->
 
         <!-- banner -->
-        <div class="container" id="banner-home">
+            <div class="container" id="banner-home">
 
 
-        <div class="row">
+            <div class="row">
 
-            <!-- lado esquerdo do banner -->
-                <div class="col" id="col-text-banner">
-                    <h5>Bem Vindo a</h5>
+                <!-- lado esquerdo do banner -->
+                    <div class="col" id="col-text-banner">
+                        <h5>Bem Vindo a</h5>
 
-                    <h2>PrepTec</h2>
-                    
-                    <p>Conquiste sua vaga na Etec acessando nossos materiais de apoio!</p>
+                        <h2>PrepTEC</h2>
+                        
+                        <p>Conquiste sua vaga na Etec acessando nossos materiais de apoio!</p>
 
-                    <div id="btn-login">
-                        @if(!empty($conta))
-                        <button type="button" class="btn btn-warning" onclick="window.location='/minhaconta'"><a href="/minhaconta">Minha Conta</a></button>
-                        @else
-                        <button type="button" class="btn btn-warning" onclick="window.location='#popup-log-template-bg'"><a href="#popup-log-template-bg">Fazer Login</a></button>
-                        @endif
+                        <div id="btn-login">
+                            @if(!empty($conta))
+                            <button type="button" class="btn btn-warning" onclick="window.location='/minhaconta'"><a href="/minhaconta">Minha Conta</a></button>
+                            @else
+                            <button type="button" class="btn btn-warning" onclick="window.location='#popup-log-template-bg'"><a href="#popup-log-template-bg">Fazer Login</a></button>
+                            @endif
+                        </div>
                     </div>
-                </div>
-            <!-- fim do lado esquerdo -->
+                <!-- fim do lado esquerdo -->
 
-            
-            <!-- lado esquerdo do banner mobile-->
-            <div class="col" id="col-text-banner-mobile">
+                
+                <!-- lado esquerdo do banner mobile-->
+                <div class="col" id="col-text-banner-mobile">
 
-                    <h2>Bem Vindo!</h2>
-                    <hr>
-                    <p>Conquiste sua vaga na Etec acessando nossos materiais de apoio!</p>
+                        <h2>Bem Vindo!</h2>
+                        <hr>
+                        <p>Conquiste sua vaga na Etec acessando nossos materiais de apoio!</p>
 
-                    <div id="btn-login">
-                        <button type="button" class="btn btn-warning"><a href="#popup-log-template-bg">Fazer Login</a></button>
+                        <div id="btn-login">
+                            @if(!empty($conta))
+                            <button type="button" class="btn btn-warning" onclick="window.location='/minhaconta'"><a href="/minhaconta">Minha Conta</a></button>
+                            @else
+                            <button type="button" class="btn btn-warning" onclick="window.location='#popup-log-template-bg'"><a href="#popup-log-template-bg">Fazer Login</a></button>
+                            @endif
+                        </div>
                     </div>
-                </div>
-            <!-- fim do lado esquerdo -->
+                <!-- fim do lado esquerdo -->
 
-            <!-- img banner (lado direito) -->
-                <div class="col" id="col-img-banner">           
-                    <img src="img/img-home.png" alt="">           
-                </div>
-            <!-- fim da img banner (lado direito) -->
-            
-        </div>
+                <!-- img banner (lado direito) -->
+                    <div class="col" id="col-img-banner">           
+                        <img src="/img/home/home_banner-livro-direita.png" alt="">           
+                    </div>
+                <!-- fim da img banner (lado direito) -->
+                
+            </div>
 
-        </div>
+            </div>
         <!-- fim do banner -->
 
             <!-- O que é PrepTEC - Parte 2 -->
@@ -214,9 +218,9 @@
                         
                             <!-- Personagens A - Container Amarelo -->
                                 <div id="d-preptec-character-shadow">
-                                    <img src="img/personagem-tipo-1_1.png"  id="img-part2-character01">
-                                    <img src="img/personagem-tipo-1_2.png"  id="img-part2-character02">
-                                    <img src="img/personagem-tipo-1_3.png"  id="img-part2-character03">
+                                    <img src="/img/home/personagens/pc/home-personage-pc-1.png"  id="img-part2-character01">
+                                    <img src="/img/home/personagens/pc/home-personage-pc-2.png"  id="img-part2-character02">
+                                    <img src="/img/home/personagens/pc/home-personage-pc-3.png"  id="img-part2-character03">
                                 </div>
                             <!--Fim dos Personagens A-->
 
@@ -224,9 +228,9 @@
                                 <div id="d-preptec-txt-column">
                                     <!-- Texto da parte 2 (O que é PrepTEC) -->
                                         <p id="d-yc-text"> 
-                                            A PrepTEC é um site que oferece simulado, teste vocacional e 
-                                            matérias presentes no Vestibuliho Etec para fornecer auxílio 
-                                            aos candidatos e possivelmente aumentar o desempenho para a prova! 
+                                            A PrepTEC tem como finalidade auxiliar os candidatos que prestarão o exame do Vestibulinho Etec. 
+                                            Este website oferece simulado, questionário vocacional e 
+                                            informações adicionais sobre o Vestibulinho para fornecer apoio nos estudos e aumentar as chances de aprovação. 
                                         </p>
                                     <!--Fim do texto da parte 2-->
                                 </div>
@@ -239,7 +243,7 @@
                     <div class="row" id="d-preptec-row">
                         
                         <!-- Coluna 1 -->
-                            <div class="col" id="post-it-col-left">
+                            <div class="col" id="post-it-col-left" style="pointer-events: none;">
                                 <center>
 
                                     <!-- Post-it 1 - Simulado -->
@@ -247,7 +251,7 @@
                                             <div id="div-post-it-durex-blue"></div>
                                             @if(!empty($conta))
                                             
-                                            <a href="/simulado" id="post-it-text-1">Realize o <br>simulado!</a> 
+                                            <a href="/simulado/realizar" id="post-it-text-1">Realize o <br>simulado!</a> 
                                             
                                             @else
 
@@ -261,14 +265,14 @@
                             </div>
                         <!-- Fim da coluna 1 -->
 
-                        <!-- Coluna 2 -->
+                         <!-- Coluna 2 -->
                             <div class="col" id="post-it-col-right">
                                 <center>
 
-                                    <!-- Post-it 2 - Teste Vocacional -->
+                                    <!-- Post-it 2 - Questionario Vocacional -->
                                         <div id="div-post-it-yc">
                                             <div id="div-post-it-durex-blue"></div>
-                                            <a href="/questionariovocacional" id="post-it-text"> Realize um questionario vocacional! </a> 
+                                            <a href="/questionario" id="post-it-text"> Realize o questionário vocacional! </a> 
                                         </div>
                                     <!-- Fim do Post-it 2 -->
                                 </center>
@@ -298,8 +302,8 @@
 
                             <!-- Personagens B - Container Azul-->
                             <div id="d-preptec-character-shadow-1">
-                                    <img src="img/personagem-tipo-1_4.png"  id="img-part2-character04">
-                                    <img src="img/personagem-tipo-1_5.png"  id="img-part2-character05">
+                                    <img src="/img/home/personagens/pc/home-personage-pc-4.png"  id="img-part2-character04">
+                                    <img src="/img/home/personagens/pc/home-personage-pc-5.png"  id="img-part2-character05">
                                 </div>
                             <!--Fim dos Personagens B-->
 
@@ -356,11 +360,11 @@
                 <!--Fim do SVG-->
 
                 <!--Personagens-->
-                <img src="img/personagem-tipo-1_1.png"  id="img-part4-character01">
-                <img src="img/personagem-tipo-1_2.png"  id="img-part4-character02">
-                <img src="img/personagem-tipo-1_3.png"  id="img-part4-character03">
-                <img src="img/personagem-tipo-1_4.png"  id="img-part4-character04">
-                <img src="img/personagem-tipo-1_5.png"  id="img-part4-character05">
+                <img src="/img/home/personagens/pc/home-personage-pc-1.png"  id="img-part4-character01">
+                <img src="/img/home/personagens/pc/home-personage-pc-2.png"  id="img-part4-character02">
+                <img src="/img/home/personagens/pc/home-personage-pc-3.png"  id="img-part4-character03">
+                <img src="/img/home/personagens/pc/home-personage-pc-4.png"  id="img-part4-character04">
+                <img src="/img/home/personagens/pc/home-personage-pc-5.png"  id="img-part4-character05">
                 <!--Fim dos Personagens-->
 
                 <!--Quadrado Azul Grande - Quadrado Azul Embaixo do SVG-->
@@ -374,13 +378,17 @@
 
                                     <!--Coluna Texto-->
                                         <div class="col" id="d-part4-bbs-column">
-                                            <p id="txt-part4-bbs">Junte-se a nós e torne realidade o seu sonho da aprovação.</p>
+                                            <p id="txt-part4-bbs">Junte-se a nós e faça do seu sonho de aprovação uma realidade!</p>
                                         </div>
                                     <!--Fim da Coluna Texto-->
 
                                     <!--Coluna Botão-->
                                         <div class="col" id="d-part4-bbs-column">
-                                            <button href="#" class="btn-templeate-appearance" id="btn-part4-bbs-createaccount"><a href="#popup-CA-template-bg">Criar Conta</a></button>
+                                            @if(!empty($conta))
+                                            <button class="btn-templeate-appearance" id="btn-part4-bbs-createaccount" onclick="window.location='/minhaconta'"><a href="/minhaconta">Minha Conta</a></button>
+                                            @else
+                                            <button class="btn-templeate-appearance" id="btn-part4-bbs-createaccount" onclick="window.location='#popup-CA-template-bg'"><a href="#popup-CA-template-bg">Criar Conta</a></button>
+                                            @endif
                                         </div>
                                     <!--Fim da Coluna Botão-->
 
@@ -402,19 +410,19 @@
 
             <!--Mobile-->
                 <!--Parte 2-->
-                <div class="container text-center" id="d-part2-preptec-father-mobile">
+                <div class="container" id="d-part2-preptec-father-mobile">
 
                 <!--Alinhamento A - 2 Colunas-->
                     <div class="row row-cols-2">
                         <!--Personagem A1-->
                             <div class="col" id="d-part2M-col-pA1">
-                                <img src="img/personage-tipo2_1.png" id="img-part2M-pA1">
+                                <img src="/img/home/personagens/mobile/home-personage-mobile-1.png" id="img-part2M-pA1">
                             </div>
                         <!--Fim do Personagem A1-->
 
                         <!--Titulo PrepTec-->
                             <div class="col" id="d-part2M-col-title">
-                                <h2 class="txt-partM-title-template d-template-center-vertAndHori" id="txt-part2-title-preptec">Oque é <br>PrepTec?</h2>
+                                <h2 class="txt-partM-title-template d-template-center-vertAndHori" id="txt-part2-title-preptec">O que é <br>PrepTEC?</h2>
                             </div>
                         <!--Fim do Titulo PrepTec-->
                     </div>
@@ -424,8 +432,8 @@
                     <div class="d-partM-colTemplate" id="d-part2M-colAmarela">
                         <p class="txt-template-jusify-text">
                             A PrepTEC é um site que oferece simulado, 
-                            teste vocacional e matérias presentes no 
-                            Vestibuliho Etec para fornecer auxílio aos 
+                            questionário vocacional e informações adicionais sobre o 
+                            Vestibulinho Etec para fornecer auxílio aos 
                             candidatos e possivelmente aumentar o 
                             desempenho para a prova!
                         </p>
@@ -438,11 +446,15 @@
                             <div class="col d-partM-col-botaos-templates">
 
                                 <!--Botão Realize o Simulado-->
-                                    <button class="btn-partM-btnTemplate" id="btn-part2M-btnAzul"><a href="/simulado">Realize o Simulado</a></button>
+                                    @if(!empty($conta))
+                                        <button class="btn-partM-btnTemplate" id="btn-part2M-btnAzul"><a href="/simulado/realizar">Realize o Simulado</a></button>
+                                    @else
+                                        <button class="btn-partM-btnTemplate" id="btn-part2M-btnAzul"><a href="#popup-CA-template-bg">Realize o Simulado</a></button>
+                                    @endif
                                 <!--Fim do Botão Realize o Simulado-->
                                     <br><br>
                                 <!--Botão Realize o Questionario Vocacional-->
-                                    <button class="btn-partM-btnTemplate" id="btn-part2M-btnAzul"><a href="/questionarioVocacional">Realize um questionário <br>vocacional</a></button>
+                                    <button class="btn-partM-btnTemplate" id="btn-part2M-btnAzul"><a href="/questionario">Realize um questionário <br>vocacional</a></button>
                                 <!--Fim do Botão o Questionario Vocacional-->
                             
                             </div>
@@ -450,7 +462,7 @@
 
                         <!--Personagem A2-->
                             <div class="col d-partM-col-personagem-template">
-                                <img src="img/personage-tipo2_2.png" class="d-template-center-vertAndHori" id="img-part2M-pA2">
+                                <img src="/img/home/personagens/mobile/home-personage-mobile-2.png" class="d-template-center-vertAndHori" id="img-part2M-pA2">
                             </div>
                         <!--Fim do Personagem A2--> 
 
@@ -461,10 +473,10 @@
                 <!--Fim da Parte 2-->
 
                 <!--Parte 3-->
-                <div id="d-part3-father-mobile" class="container text-center">
+                <div id="d-part3-father-mobile" class="container">
 
                 <!--Titulo PrepTec-->
-                    <h2 class="txt-partM-title-template" id="txt-part3M-title-etec">Oque é Etec?</h2>
+                    <h2 class="txt-partM-title-template" id="txt-part3M-title-etec">O que é Etec?</h2>
                 <!--Fim do Titulo PrepTec-->
 
                 <!--Coluna Azul-->
@@ -493,7 +505,7 @@
 
                         <!--Personagem A2-->
                             <div class="col d-partM-col-personagem-template">
-                                <img src="img/personage-tipo2_4.png" id="img-part3M-pA3">
+                                <img src="/img/home/personagens/mobile/home-personage-mobile-4.png" id="img-part3M-pA3">
                             </div>
                         <!--Fim do Personagem A2--> 
 
@@ -512,29 +524,30 @@
                 <!--Texto Subtitulo-->
                     <p class="txt-template-main-text" id="txt-part4M-subtitle">
                         Junte-se <br>
-                        a nós e torne realidade o sonho da <br>
-                        aprovação.
+                        e faça do seu sonho de aprovação <br>
+                        uma realidade!
                     </p>
+
                 <!--Fim do Texto Subtitulo-->
 
                 <!--Botão Criar Conta-->
-                    <button class="btn-templeate-appearance" id="btn-part4M-criarConta">Criar Conta</button>
+                    <button class="btn-templeate-appearance" id="btn-part4M-criarConta" onclick="window.location='#popup-CA-template-bg'">Criar Conta</button>
                 <!--Fim do Botão Criar Conta-->
 
                 <!--Personagem B1-->
-                    <img src="img/personage-tipo2_1.png" id="img-part4M-pB1">
+                    <img src="/img/home/personagens/mobile/home-personage-mobile-1.png" id="img-part4M-pB1">
                 <!--Fim do Personagem B1-->
 
                 <!--Personagem B2-->
-                    <img src="img/personage-tipo2_2.png" id="img-part4M-pB2">
+                    <img src="/img/home/personagens/mobile/home-personage-mobile-2.png" id="img-part4M-pB2">
                 <!--Fim do Personagem B2-->
 
                 <!--Personagem B3-->
-                    <img src="img/personage-tipo2_3.png" id="img-part4M-pB3">
+                    <img src="/img/home/personagens/mobile/home-personage-mobile-3.png" id="img-part4M-pB3">
                 <!--Fim do Personagem B3-->
 
                 <!--Personagem B4-->
-                    <img src="img/personage-tipo2_4.png" id="img-part4M-pB4">
+                    <img src="/img/home/personagens/mobile/home-personage-mobile-4.png" id="img-part4M-pB4">
                 <!--Fim do Personagem B4-->
 
                 <!--Quadrados Azuis-->
@@ -548,8 +561,170 @@
                 <!--Fim da Parte 4-->
             <!--Fim do Mobile-->
 
+        <!-- Footer -->
+            <footer>
+
+                <!--Container Principal-->
+                    <div class="container-fluid" id="d-footer-container">
+
+                        <!--Row - 3 Col-->
+                            <div class="row row-cols-3">
+
+                                <!--Coluna Desenvolvedores-->
+                                    <div class="col" id="d-footer-devs-col">
+
+                                        <!--Titulo-->
+                                            <h2 id="txt-footer-title">Desenvolvedores</h2>
+                                        <!--Fim do Titulo-->
+
+                                        <!--Fotos Desenvolvedores - Carrosel Bootstrap-->
+                                            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" id="d-footer-dev-carrousel">
+
+                                                <div class="carousel-inner" id="d-footer-dev-carrousel-carrouselInner">
+
+                                                    <div class="carousel-item active">
+                                                        
+                                                        <!--Imagem Desenvolvedor-->
+                                                            <img src="/img/layouts/footer/ana.png" class="d-block img-footer-dev-devPic" alt="...">
+                                                        <!--Imagem Desenvolvedor-->
+
+                                                        <!--Nome Desenvolvedor-->
+                                                            <p id="txt-footer-dev-devName">Ana Luísa A. do Val</p>
+                                                        <!--Fim do Nome Desenvolvedor-->
+
+                                                        <!--Icones-->
+                                                            <div id="d-footer-dev-carrosel-divIcon">
+
+                                                                <a href="https://github.com/AnaLuisaAugusto">
+                                                                    <img src="/img/layouts/footer/github_icon.png" alt="">
+                                                                </a>
+
+                                                                    &nbsp;&nbsp;
+
+                                                                <a href="http://www.linkedin.com/in/ana-luisa-augusto-">
+                                                                    <img src="/img/layouts/footer/linkedin_icon.png" alt="">
+                                                                </a>
+
+                                                            </div>
+                                                        <!--Fim do Icones-->
+
+                                                    </div>
+
+                                                    <div class="carousel-item">
+
+                                                        <!--Imagem Desenvolvedor-->
+                                                            <img src="/img/layouts/footer/erick.jpg" class="d-block img-footer-dev-devPic" alt="...">
+                                                        <!--Imagem Desenvolvedor-->
+
+                                                        <!--Nome Desenvolvedor-->
+                                                            <p id="txt-footer-dev-devName">Erick Bastos</p>
+                                                        <!--Fim do Nome Desenvolvedor-->
+
+                                                        <!--Icones-->
+                                                            <div id="d-footer-dev-carrosel-divIcon">
+                                                                
+                                                                <a href="https://github.com/RPSIOErick">
+                                                                    <img src="/img/layouts/footer/github_icon.png" alt="">
+                                                                </a>
+
+                                                                    &nbsp;&nbsp;
+
+                                                                <a href="https://www.linkedin.com/in/erickpereirabastos/">
+                                                                    <img src="/img/layouts/footer/linkedin_icon.png" alt="">
+                                                                </a>
+
+                                                            </div>
+                                                        <!--Fim dos Icones-->
+
+                                                    </div>
+
+                                                    <div class="carousel-item">
+
+                                                        <!--Imagem Desenvolvedor-->                
+                                                            <img src="/img/layouts/footer/giovana.jpg" class="d-block img-footer-dev-devPic" alt="...">
+                                                        <!--Imagem Desenvolvedor-->
+
+                                                        <!--Nome Desenvolvedor-->
+                                                            <p id="txt-footer-dev-devName">Giovana S. de França</p>
+                                                        <!--Fim do Nome Desenvolvedor-->
+
+                                                        <!--Icones-->
+                                                            <div id="d-footer-dev-carrosel-divIcon">
+
+                                                                <a href="https://github.com/gsfranca">
+                                                                    <img src="/img/layouts/footer/github_icon.png" alt="">
+                                                                </a>
+
+                                                                    &nbsp;&nbsp;
+
+                                                                <a href="https://www.linkedin.com/in/giovanasantosdefranca/">
+                                                                    <img src="/img/layouts/footer/linkedin_icon.png" alt="">
+                                                                </a>
+
+                                                            </div>
+                                                        <!--Fim do Icones-->
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        <!--Fim das Fotos Desenvolvedores-->
+
+                                    </div>
+                                <!--Coluna Desenvolvedores-->
+
+                                <!--Coluna PrepTec-->
+                                    <div class="col" id="d-footer-preptec-col">
+
+                                        <!--Titulo-->
+                                            <h2 id="txt-footer-title">PrepTEC</h2>
+                                        <!--Fim do Titulo-->
+
+                                        <!--Texto PrepTec-->
+                                            <p id="txt-footer-prepT-explanation">
+                                                PrepTEC é um website que oferece recursos gratuitos que 
+                                                auxiliam na preparação do Vestibulinho da ETEC. 
+                                            </p>
+                                        <!--Fim do Texto PrepTec-->
+
+                                        <!--Copyright-->
+                                            <p id="txt-footer-prepT-copyright">© 2023 Copyright: PrepTEC</p>
+                                        <!--Fim do Copyright-->
+                                    </div>
+                                <!--Fim da Coluna PrepTec-->
+
+                                <!--Coluna Projeto-->
+                                    <div class="col" id="d-footer-projeto-col">
+
+                                        <!--Titulo-->
+                                            <h2 id="txt-footer-title">Projeto</h2>
+                                        <!--Fim do Titulo-->
+
+
+                                        <!--Icone PrepTEC-->
+                                        <a href="https://github.com/RPSIOErick/PrepTEC"> <img src="/img/layouts/footer/preptec-logo-github.png" alt="" id="img-footer-proj-preptecGit"></a>
+                                        <!--Fim do Icone PrepTEC-->
+
+                                        <!--Explicação Projeto-->
+                                            <p id="txt-footer-proj-explanation">
+                                                Acesse esse projeto no GitHub e saiba 
+                                                mais sobre a construção do site.
+                                            </p>
+                                        <!--Fim da Explicação Projeto-->
+
+                                    </div>
+                                <!--Fim da Coluna Projeto-->
+                            </div>
+                        <!--Fim do Row-->
+
+                    </div>
+                <!--Fim do Container Principal-->
+
+            </footer>
+        <!-- Fim do Footer -->
+
         <!--Popup Cadastro-->
-            <div id="popup-CA-template-bg" class="overlay">
+        <div id="popup-CA-template-bg" class="overlay">
 
             <!--Popup-->
                 <div class="d-template-center-vertAndHori" id="popup-logCA-template">
@@ -563,7 +738,7 @@
                                 
                             <!--Criar Conta A - Parte esquerda (Banner)-->
                                 <div class="col" id="d-popup-logCA-template-col-banner">
-                                    <img src="/img/Banner-CA.png" alt="" id="img-popup-logCA-template-banner">
+                                    <img src="/img/layouts/login-createAccount/banner-CA.png" alt="" id="img-popup-logCA-template-banner">
                                 </div>
                             <!--Fim do Criar Conta A-->
 
@@ -571,7 +746,7 @@
                                 <div class="col" id="d-popup-logCA-template-col">
 
                                     <!--Titulo Login-->
-                                        <div class="row row-cols-2" id="d-popup-logCA-template-row-title">
+                                        <div class="row row-cols-1" id="d-popup-logCA-template-row-title">
 
                                             <div class="col d-template-center-vert" id="d-popup-logCA-template-col-icon">
                                                 <ion-icon name="person-circle-outline" id="icon-popup-logCA-template-personIcon"></ion-icon>
@@ -593,7 +768,7 @@
                                                 <div class="alert alert-success" style="width: 95%; text-align: center;">{{Session::get('Sucesso')}}</div>
                                             @endif
                                             @if(Session::has('Falha'))
-                                                <div class="alert alert-danger" style="width: 95%; text-align: center;">{{Session::get('Falha')}}</div>
+                                                <div class="alert alert-danger" style="width: 95%; text-align: center;">{{ Session::get('Falha') }}</div>
                                             @endif
 
                                             @csrf
@@ -604,6 +779,7 @@
                                                         <div class="mb-3">
                                                             <label for="usuario" class="form-label"> Nome: </label>
                                                             <input required type="text" class="form-control" id="usuario" name="nome_usuario" value="{{old('nome_usuario')}}">
+            
                                                             <span class="text-danger"> @error('nome_usuario') {{$message}} @enderror</span>
                                                         </div>
                                                     <!--Fim do Input Usuário-->
@@ -611,7 +787,14 @@
                                                     <!--Inpu Email-->
                                                         <div class="mb-3">
                                                             <label for="email" class="form-label"> Email: </label>
-                                                            <input type="email" class="form-control" id="email" placeholder="exemplo@gmail.com" name="email_usuario" value="{{old('email_usuario')}}">
+                                                            <input type="email" class="form-control" id="email" placeholder="exemplo@gmail.com" name="email_usuario" value="{{old('email_usuario')}}" pattern=".*@.*\.com">
+                                                            <div id="d-popup-logCA-template-warning">
+                                                                <p>Certifique-se que seu email contenha:</p>
+                                                                <ul>
+                                                                    <li>@</li>
+                                                                    <li>.com</li>
+                                                                </ul>
+                                                            </div>
                                                             <span class="text-danger"> @error('email_usuario') {{$message}} @enderror</span>
                                                         </div>
                                                     <!--Fim do Input Email-->
@@ -619,14 +802,23 @@
                                                     <!--Input Senha-->
                                                         <div class="mb-3">
                                                             <label for="senha" class="form-label"> Senha: </label>
-                                                            <input type="password" class="form-control" id="password" placeholder="********" name="senha_usuario" value="{{old('senha_usuario')}}">
+                                                            <input type="password" class="form-control" id="password" placeholder="********" name="senha_usuario" value="{{old('senha_usuario')}}" minlength="8">
+                                                            <div id="d-popup-logCA-template-warning">
+                                                                <p>Certifique-se que sua senha contenha:</p>
+                                                                <ul>
+                                                                    <li>No minimo 8 caracteres</li>
+                                                                    <li>1 Número</li>
+                                                                    <li>1 Letra Maiscula</li>
+                                                                    <li>1 Caracter Especial</li>
+                                                                </ul>
+                                                            </div>
                                                             <span class="text-danger"> @error('senha_usuario') {{$message}} @enderror</span>
                                                         </div>
                                                     <!--Fim do Input Senha-->
 
                                                     <!--Botão proxima parte-->
                                                         <center>
-                                                            <button class="btn btn-templeate-appearance d-template-center-hori" id="btn-popup-logCA-template" type="button" onclick="ProxFase()"> Próxima Etapa </button>
+                                                            <button class="btn-templeate-appearance d-template-center-hori" id="btn-popup-logCA-template" type="button" onclick="ProxFase()"> Próxima Etapa </button>
                                                             <p id="txt-popup-logCA-template-text-2">
                                                                 Já possui uma conta?
                                                                 <a href="#popup-log-template-bg" id="txt-popup-CA-login"> Faça login!</a>
@@ -641,8 +833,8 @@
 
                                                     <center>
                                                         <!-- Input: Imagem -->
-                                                        <div class="mb-3">
-                                                            <img src="img/userIcon.png" width="70"> <br>
+                                                        <div class="mb-3" id="d-home-mb3Perfil">
+                                                            <img src="/img/layouts/login-createAccount/user-Img.png"> <br>
                                                             <label for="foto" class="form-label"> Envie uma foto! </label>
                                                             <input type="file" name="fotoUsuario" class="form-control" accept="image/*">
                                                         </div>
@@ -679,9 +871,9 @@
             <!--Fim do Popup-->
 
             </div>
-        <!--Fim do Popup Cadastro-->
+            <!--Fim do Popup Cadastro-->
 
-        <!--Popup Login-->
+            <!--Popup Login-->
             <div id="popup-log-template-bg" class="overlay">
 
             <!--Popup-->
@@ -696,7 +888,7 @@
 
                             <!--Login A - Parte Esquerda (Banner)-->
                                 <div class="col" id="d-popup-logCA-template-col-banner">
-                                    <img src="/img/Banner-LOG.png" alt="" id="img-popup-logCA-template-banner">
+                                    <img src="/img/layouts/login-createAccount/banner-LOG.png" alt="" id="img-popup-logCA-template-banner">
                                 </div>
                             <!--Fim do Login A-->
 
@@ -704,20 +896,20 @@
                                 <div class="col" id="d-popup-logCA-template-col">
 
                                         <!--Titulo Login-->
-                                                <div class="row row-cols-2" id="d-popup-logCA-template-row-title">
+                                            <div class="row row-cols-1" id="d-popup-logCA-template-row-title">
 
-                                                    <div class="col d-template-center-vert" id="d-popup-logCA-template-col-icon">
-                                                        <ion-icon name="person-circle-outline" id="icon-popup-logCA-template-personIcon"></ion-icon>
-                                                    </div>
-
-                                                    <div class="col d-template-center-vert" id="d-popup-logCA-template-col-title">
-                                                        <h1 class="d-template-center-hori" id="txt-popup-logCA-template-title">
-                                                            LOGIN
-                                                        </h1>
-                                                    </div>
-
+                                                <div class="col d-template-center-vert" id="d-popup-logCA-template-col-icon">
+                                                    <ion-icon name="person-circle-outline" id="icon-popup-logCA-template-personIcon"></ion-icon>
                                                 </div>
-                                        <!--Fim do Titulo Login-->
+
+                                                <div class="col d-template-center-vert" id="d-popup-logCA-template-col-title">
+                                                    <h1 class="d-template-center-hori" id="txt-popup-logCA-template-title">
+                                                        LOGIN
+                                                    </h1>
+                                                </div>
+
+                                            </div>
+                                    <!--Fim do Titulo Login-->
 
                                         @if(Session::has('Sucesso'))
                                                 <div class="alert alert-success" style="width: 95%; text-align: center;">{{Session::get('Sucesso')}}</div>
@@ -733,7 +925,14 @@
                                                 <!--Input Email-->
                                                     <div class="mb-3">
                                                         <label for="email" class="form-label">&nbsp;&nbsp;Email:</label>
-                                                        <input type="email" class="form-control" id="email" placeholder="exemplo@gmail.com" name="email_usuario">
+                                                        <input type="email" class="form-control" id="email" placeholder="exemplo@gmail.com" name="email_usuario" pattern=".*@.*\.com">
+                                                        <div id="d-popup-logCA-template-warning">
+                                                            <p>Certifique-se que seu email contenha:</p>
+                                                            <ul>
+                                                                <li>@</li>
+                                                                <li>.com</li>
+                                                            </ul>
+                                                        </div>
                                                         <span class="text-danger"> @error('email_usuario') {{$message}} @enderror</span>
                                                     </div>
                                                 <!--Fim do Input Email-->
@@ -741,7 +940,16 @@
                                                 <!--Input Senha-->
                                                     <div class="mb-3">
                                                         <label for="senha" class="form-label">&nbsp;&nbsp;Senha:</label>
-                                                        <input type="password" class="form-control" id="password" placeholder="********" name="senha_usuario">
+                                                        <input type="password" class="form-control" id="password" placeholder="********" name="senha_usuario" minlength="8" pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*!])[A-Za-z\d@#$%^&*!]+$">
+                                                        <div id="d-popup-logCA-template-warning">
+                                                            <p>Certifique-se que sua senha contenha:</p>
+                                                            <ul>
+                                                                <li>No minimo 8 caracteres</li>
+                                                                <li>1 Número</li>
+                                                                <li>1 Letra Maiscula</li>
+                                                                <li>1 Caracter Especial</li>
+                                                            </ul>
+                                                        </div>
                                                         <span class="text-danger"> @error('senha_usuario') {{$message}} @enderror</span>
                                                     </div>
                                                 <!--Fim do Input Senha-->
@@ -772,7 +980,8 @@
             <!--Fim do Popup-->
 
             </div>
-        <!--Fim do Popup Login-->
+            <!--Fim do Popup Login-->
+
         <!-- Import do Ion Icons -->
             <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
             <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -783,7 +992,7 @@
             {
                 var navbar = document.getElementById('navbar-preptec')
                 
-                if (window.scrollY > 650) {
+                if (window.scrollY > 30) {
                     navbar.style.backgroundColor = '#224a7d';
                 } 
                 else {

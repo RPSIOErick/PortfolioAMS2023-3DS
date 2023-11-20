@@ -1,10 +1,10 @@
-@extends('layouts.mainNavbarOnly')
+@extends('layouts.main-NavbarOnly')
 
-@section('title', 'Cadastrar Questões - PrepTEC')
+@section('title', 'Editar Questionario Vocacional - PrepTEC')
 
 @section('content')
 
-<link rel="stylesheet" href="/css/crudpages.css">
+<link rel="stylesheet" href="/css/admin/crud.css">
 
 <!-- Container de Criação de Questões -->
     <div class="container-fluid">
@@ -19,7 +19,7 @@
                 <!--Fim da Coluna Titulo-->
                 
                 <!--Formulario-->
-                    <form action="/atualizar/{{$quest->id_pergunta}}"  method="POST" id="d-CRUD-CU-col-template">
+                    <form action="/questionario/atualizar/{{$quest->id_pergunta}}"  method="POST" id="d-CRUD-CU-col-template">
                         <input hidden type="text" name="id_QuestVoc" value="{{$quest->id_pergunta}}">
                         @csrf
                         @method('put')
@@ -62,7 +62,7 @@
                                 <!--Campo Pergunta-->
                                     <div class="col">
                                         <label id="txt-CRUD-CU-label-template">Pergunta</label><br>
-                                        <textarea id="input-CRUD-CU-bigInp-template" placeholder="Adicione aqui a pergunta..." name="txt_perg" value="{{$quest->txt_perg}}">{{$quest->txt_perg}}</textarea>
+                                        <textarea id="input-CRUD-CU-bigInp-template" placeholder="Adicione aqui a pergunta..." name="txt_perg" value="{{$quest->txt_perg}}" required>{{$quest->txt_perg}}</textarea>
                                     </div>
                                 <!--Fim do Campo Pergunta-->
                                     <br><br>

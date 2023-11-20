@@ -9,7 +9,7 @@ class Simulado extends Model
 {
     use HasFactory;
     
-    protected $table = "Simulado";
+    protected $table = "simulado";
     protected $primaryKey = "id_simu";
     protected $fillable = [
         'id_simu',

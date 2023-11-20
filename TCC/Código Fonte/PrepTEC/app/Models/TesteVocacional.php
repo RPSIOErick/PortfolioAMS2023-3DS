@@ -9,7 +9,7 @@ class TesteVocacional extends Model
 {
     use HasFactory;
 
-    protected $table = "QuestionarioVocacional";
+    protected $table = "questionariovocacional";
     protected $primaryKey = "id_QuestVoc";
     protected $fillable = [
         'id_QuestVoc',

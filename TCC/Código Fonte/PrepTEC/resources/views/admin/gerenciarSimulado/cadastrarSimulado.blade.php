@@ -1,10 +1,10 @@
-@extends('layouts.mainNavbarOnly')
+@extends('layouts.main-NavbarOnly')
 
-@section('title', 'Cadastrar Questões - PrepTEC')
+@section('title', 'Cadastrar Simulado - PrepTEC')
 
 @section('content')
 
-<link rel="stylesheet" href="/css/crudpages.css">
+<link rel="stylesheet" href="/css/admin/crud.css">
 
 <!-- Container de Criação de Questões -->
     <div class="container-fluid">
@@ -19,7 +19,7 @@
                 <!--Fim da Coluna Titulo-->
                 
                 <!--Formulario-->
-                    <form action="{{ url('/questoes_sim/salvar') }}" method="POST" id="d-CRUD-CU-col-template">
+                    <form action="{{ url('/simulado/salvar') }}" method="POST" id="d-CRUD-CU-col-template">
 
                         @csrf
                         <!--Cabeçario do CRUD-->
@@ -60,14 +60,14 @@
                                 <!--Campo Questão-->
                                     <div class="col">
                                         <label id="txt-CRUD-CU-label-template">Questão</label><br>
-                                        <textarea id="input-CRUD-CU-bigInp-template" name="txt_quest" placeholder="Adicione aqui o texto da questão..."></textarea>
+                                        <textarea id="input-CRUD-CU-bigInp-template" name="txt_quest" placeholder="Adicione aqui o texto da questão..." required></textarea>
                                     </div>
                                 <!--Fim do Campo Questão-->
 
                                 <!--Campo Pergunta-->
                                     <div class="col">
                                         <label id="txt-CRUD-CU-label-template">Pergunta</label><br>
-                                        <textarea id="input-CRUD-CU-bigInp-template" name="txt_perg" placeholder="Adicione aqui a questão..."></textarea>
+                                        <textarea id="input-CRUD-CU-bigInp-template" name="txt_perg" placeholder="Adicione aqui a questão..." required></textarea>
                                     </div>
                                 <!--Fim do Campo Pergunta-->
 
@@ -127,7 +127,7 @@
 
                                                                                 <!--Coluna Input-->
                                                                                     <div class="col"  id="d-CRUD-CU-altInput">
-                                                                                        <textarea id="input-CRUD-CU-alt" name="txt_alter[]"></textarea>
+                                                                                        <textarea id="input-CRUD-CU-alt" name="txt_alter[]" required></textarea>
                                                                                     </div>
                                                                                 <!--Fim da Coluna Input-->
 
@@ -139,7 +139,7 @@
 
                                                                 <!--Checkbox-->
                                                                     <div class="col" id="d-CRUD-CU-alt-checkbox">
-                                                                        <input type="radio" name="alter_true" value="0" id="checkbox-CRUD-CU-alt">
+                                                                        <input type="radio" name="alter_true" value="0" id="checkbox-CRUD-CU-alt" required>
                                                                     </div>
                                                                 <!--Fim do Checkbox-->
 
@@ -169,7 +169,7 @@
 
                                                                                 <!--Coluna Input-->
                                                                                     <div class="col"  id="d-CRUD-CU-altInput">
-                                                                                        <textarea id="input-CRUD-CU-alt" name="txt_alter[]"></textarea>
+                                                                                        <textarea id="input-CRUD-CU-alt" name="txt_alter[]" required></textarea>
                                                                                     </div>
                                                                                 <!--Fim da Coluna Input-->
 
@@ -181,7 +181,7 @@
 
                                                                 <!--Checkbox-->
                                                                     <div class="col" id="d-CRUD-CU-alt-checkbox">
-                                                                        <input type="radio" name="alter_true" value="1" id="checkbox-CRUD-CU-alt">
+                                                                        <input type="radio" name="alter_true" value="1" id="checkbox-CRUD-CU-alt" required>
                                                                     </div>
                                                                 <!--Fim do Checkbox-->
 
@@ -211,7 +211,7 @@
 
                                                                                 <!--Coluna Input-->
                                                                                     <div class="col"  id="d-CRUD-CU-altInput">
-                                                                                        <textarea id="input-CRUD-CU-alt" name="txt_alter[]"></textarea>
+                                                                                        <textarea id="input-CRUD-CU-alt" name="txt_alter[]" required></textarea>
                                                                                     </div>
                                                                                 <!--Fim da Coluna Input-->
 
@@ -223,7 +223,7 @@
 
                                                                 <!--Checkbox-->
                                                                     <div class="col" id="d-CRUD-CU-alt-checkbox">
-                                                                        <input type="radio" name="alter_true" value="2" id="checkbox-CRUD-CU-alt">
+                                                                        <input type="radio" name="alter_true" value="2" id="checkbox-CRUD-CU-alt" required>
                                                                     </div>
                                                                 <!--Fim do Checkbox-->
 
@@ -253,7 +253,7 @@
 
                                                                                 <!--Coluna Input-->
                                                                                     <div class="col"  id="d-CRUD-CU-altInput">
-                                                                                        <textarea id="input-CRUD-CU-alt" name="txt_alter[]"></textarea>
+                                                                                        <textarea id="input-CRUD-CU-alt" name="txt_alter[]" required></textarea>
                                                                                     </div>
                                                                                 <!--Fim da Coluna Input-->
 
@@ -265,7 +265,7 @@
 
                                                                 <!--Checkbox-->
                                                                     <div class="col" id="d-CRUD-CU-alt-checkbox">
-                                                                        <input type="radio" name="alter_true"value="3" id="checkbox-CRUD-CU-alt">
+                                                                        <input type="radio" name="alter_true"value="3" id="checkbox-CRUD-CU-alt" required>
                                                                     </div>
                                                                 <!--Fim do Checkbox-->
 
@@ -295,7 +295,7 @@
 
                                                                                 <!--Coluna Input-->
                                                                                     <div class="col"  id="d-CRUD-CU-altInput">
-                                                                                        <textarea id="input-CRUD-CU-alt" name="txt_alter[]"></textarea>
+                                                                                        <textarea id="input-CRUD-CU-alt" name="txt_alter[]" required></textarea>
                                                                                     </div>
                                                                                 <!--Fim da Coluna Input-->
 
@@ -307,7 +307,7 @@
 
                                                                 <!--Checkbox-->
                                                                     <div class="col" id="d-CRUD-CU-alt-checkbox">
-                                                                        <input type="radio" name="alter_true" value="4" id="checkbox-CRUD-CU-alt">
+                                                                        <input type="radio" name="alter_true" value="4" id="checkbox-CRUD-CU-alt" required>
                                                                     </div>
                                                                 <!--Fim do Checkbox-->
 

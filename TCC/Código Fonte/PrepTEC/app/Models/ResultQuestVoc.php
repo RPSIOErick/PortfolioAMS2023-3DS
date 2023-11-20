@@ -9,7 +9,7 @@ class ResultQuestVoc extends Model
 {
     use HasFactory;
 
-    protected $table = "ResultQuestVoc";
+    protected $table = "resultquestvoc";
     protected $fillable = [
         'id_usuario',
         'id_QuestVoc',
